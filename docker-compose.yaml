@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_DB: gostack_desafio06
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: docker
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./db/postgresql/data:/var/lib/postgresql/data
+    networks:
+      - gobarber
+
+networks:
+  gobarber:
+    driver: bridge
